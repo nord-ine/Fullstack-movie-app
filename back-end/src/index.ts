@@ -1,10 +1,15 @@
 import express from 'express';
+const cors = require('cors')
 const moviesList= require(__dirname+'/movies.json')
 import movie from './movie';
 import {getMovie,getListOfMovies} from './queryFunctions';
 
 
+
+
+
 const app = express()
+app.use(cors())
 
 app.get("/searchMovie/:movieTitle",(req, res)=>{
     //res.send('heyyyyy this is typescript')
