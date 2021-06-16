@@ -1,5 +1,7 @@
-import { Text ,Flex, Heading, HStack, VStack} from '@chakra-ui/layout'
+import { Text ,Flex, Heading, HStack, VStack,Image} from '@chakra-ui/react'
 import React from 'react'
+
+
 
 const MovieCard = ({movie}) => {
     return (
@@ -9,20 +11,52 @@ const MovieCard = ({movie}) => {
             borderWidth:"3px",
             borderColor:"twitter.500"
            }}>
-          <Heading as="h3" margin="10px">Title</Heading>
+          <Heading as="h3" margin="10px">{movie.Title}</Heading>
           <HStack w="100%" margin="10px">
               <Text>available on : </Text>
-              
+              {
+                movie.Netflix==1 &&
+                <Image  boxSize="40px"
+                      objectFit="cover"
+                      src="Netflix.png"
+                      alt="netflix">
+             </Image>
+              }
+              {
+                movie.Hulu==1 &&
+                <Image  boxSize="50px"
+                objectFit="cover"
+                src="hulu.png"
+                alt="hulu">
+                </Image>
+              }
+             {
+                movie['Disney+']==1 &&
+                <Image  boxSize="50px"
+                objectFit="cover"
+                src="disney_plus.png"
+                alt="disney plus">
+                </Image>
+             }
+            {
+                movie['Prime Video']==1 &&
+                <Image  boxSize="50px"
+                objectFit="cover"
+                src="prime-video.png"
+                 alt="prime-video">
+                </Image>
+            }
+
           </HStack>
           <HStack w="100%">
               <VStack w="50%" spacing="10px">
-                <Text> year</Text>
-                <Text>ImDB</Text>
-                <Text>directors</Text>
+                <Text>year: {movie.Year}</Text>
+                <Text>ImDB: {movie.IMDb}</Text>
+                <Text>directors: {movie.Directors}</Text>
               </VStack>
               <VStack w="50%" spacing="10px">
-              <Text>genres : </Text>
-              <Text>Runtimle  : </Text>
+              <Text>genres : {movie.Genres}</Text>
+              <Text>Runtimle  : {movie.Runtime}</Text>
               <Text></Text>
               </VStack>
           </HStack>
