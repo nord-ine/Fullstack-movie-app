@@ -27,6 +27,7 @@ app.get("/movies/:pageNumber",(req, res)=>{
     res.send(result)
 });
 
+const port = process.env.PORT || 5000
 
-app.listen(5000,()=>console.log("server running"))
+app.listen(port,()=>console.log("server running"))
 
